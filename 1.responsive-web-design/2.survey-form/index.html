@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Survey Form</title>
+</head>
+<body>
+  <main>
+    <section class="container">
+      <header class="text-center p-5">
+        <h1 id="title" class="card-title text-white">前端开发技术调查问卷</h1>
+        <p id="description" class="text-white card-subtitle fst-italic fs-5 mt-3 fw-light">欢迎参加本次答题
+        </p>
+      </header>
+
+      <div class="card bg-opacity-50 bg-dark">
+        <div class="card-body p-5 text-white">
+          <form id="survey-form">
+            <div class="mb-4">
+              <label id="name-label" for="name" class="mb-2 form-label">姓名：</label>
+              <input type="text" required id="name" class="form-control" placeholder="请输入你的姓名">
+            </div>
+
+            <div class="mb-4">
+              <label id="email-label" for="email" class="mb-2 form-label">邮箱：</label>
+              <input type="email" required id="email" class="form-control" placeholder="example@example.com">
+            </div>
+
+            <div class="mb-4">
+              <label id="number-label" for="number" class="mb-2 form-label">年龄：</label>
+              <input type="number" required id="number" class="form-control" min="16" max="80" placeholder="请输入你的年龄">
+            </div>
+
+            <div class="mb-4">
+              <p>你现在的职业是？</p>
+              <select name="occupation" id="dropdown" class="form-control form-control-sm">
+                <option value="FE developer">前端开发</option>
+                <option value="BE developer">后端开发</option>
+                <option value="ui/ux">UI/UX 设计师</option>
+                <option value="misc">其他</option>
+              </select>
+            </div>
+
+            <div class="mb-4">
+              <p class="mb-2">你是用什么技术编写页面样式？</p>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="css" name="use-tech" value="pure css" checked>
+                <label for="css" class="form-check-label">
+                  纯 CSS
+                </label>
+              </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="use-tech" name="use-tech" value="flex"> 
+                <label for="flex" class="form-check-label">
+                  flex
+                </label>
+              </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="use-tech" name="use-tech" value="grid"> 
+                <label for="grid" class="form-check-label">
+                  grid
+                </label>
+              </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="use-tech" name="use-tech" value="misc"> 
+                <label for="misc" class="form-check-label">
+                  其他
+                </label>
+              </div>
+            </div>
+            
+            <div class="mb-4">
+              <p class="mb-2">你使用过哪些前端框架？</p>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="react" id="react">
+                <label class="form-check-label" for="react">
+                  React
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="vue" id="vue">
+                <label class="form-check-label" for="vue">
+                  Vue
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="angular" id="angular">
+                <label class="form-check-label" for="angular">
+                  Angular
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="other" id="other">
+                <label class="form-check-label" for="other">
+                  其他框架
+                </label>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <p class="mb-2">欢迎在下方留下建议</p>
+              <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px"></textarea>
+              </div>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" id="submit" class="btn btn-success">提交</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

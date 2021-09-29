@@ -1,0 +1,96 @@
+html {
+  font-size: 16px;
+  font-family: "Noto Sans SC", sans-serif;
+  color: white;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: hsl(200, 10%, 40%);
+}
+
+#main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+}
+
+#title {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+#main article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#main .item-title {
+  margin-bottom: 0.2rem;
+}
+
+#tribute-info hr {
+  width: 4rem;
+  float: left;
+}
+
+#tribute-info hr::after {
+  content: '';
+  display: block;
+  width: 100%;
+  clear: both;
+}
+
+#tribute-info p::before {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+#tribute-info p {
+  margin-bottom: 2rem;
+}
+
+#img-div {
+  padding: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  transform: rotate(-3deg);
+  background: white;
+}
+
+#img-div figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.6rem;
+  margin-bottom: 0;
+}
+
+#image {
+  height: auto;
+  max-width: 100%;
+  width: 60vw;
+}
+
+#img-caption {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  color: hsl(200, 10%, 40%);
+}
+
+footer {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+
+footer #tribute-link {
+  color: white;
+}
