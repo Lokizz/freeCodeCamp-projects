@@ -23,6 +23,34 @@ class UI {
     navbar.classList.remove('drop-in')
   }
 
+  navbarItemHighlight(item) {
+    // ! 通过 href 属性确定对应的 section
+    const itemID = item.href.split('#')[1]
+    const itemDiv = document.getElementById(itemID)
+    const itemRect = itemDiv.getBoundingClientRect()
+
+    // if ((itemRect.top <= 60 && itemRect.bottom > 100) || (itemID === 'pricing' && itemRect.top <= itemRect.height / 2))
+    if (itemRect.top <= 80 && itemRect.bottom > 100) {
+      item.classList.add('active-item')
+    } else {
+      item.classList.remove('active-item')
+    }
+  }
+
+  selectedStyleToggle(target) {
+    if (target.classList.contains('bi')) {
+      // the selected item would cancel selection when clicked again
+      if (target.classList.contains('selected')) {
+        this.unselectListItem(target)
+      } else {
+        // check if any selected list items
+        this.cancelCurrentSelected()
+        this.selectListItem(target)
+        target.dataset.current = 'true'
+      }
+    }
+  }
+
   selectedStyleToggle(target) {
     if (target.classList.contains('bi')) {
       // the selected item would cancel selection when clicked again
