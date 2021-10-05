@@ -2,7 +2,7 @@ const ui = new UI()
 // ? Event listeners
 document.addEventListener('scroll', navbarAnimation)
 document.addEventListener('scroll', navbarActiveItem)
-document.addEventListener('scroll', ui.backToTopBtnRender)
+document.addEventListener('scroll', backToTopBtn)
 document.addEventListener('click', backToTop)
 
 // ? Banner 部分选择项目的特效
@@ -38,6 +38,18 @@ function navbarActiveItem() {
 
     ui.navbarItemHighlight(item)
   })
+}
+
+// ? 判断并渲染 top-btn
+function backToTopBtn() {
+  const scrollY = parseInt(window.scrollY)
+  const fontSize = parseInt(getComputedStyle(document.body)['font-size'])
+
+  if ((scrollY >= 10 * fontSize) && (!document.querySelector('.top-btn'))) {
+    ui.backToTopBtnRender()
+  } else if (scrollY <= 5 * fontSize) {
+    ui.backToTopBtnRemove()
+  }
 }
 
 // ? 移除回到顶部的按钮

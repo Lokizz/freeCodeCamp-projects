@@ -9,25 +9,26 @@ class UI {
   }
 
   backToTopBtnRender() {
-    const scrollY = parseInt(window.scrollY)
-    const fontSize = parseInt(getComputedStyle(document.body)['font-size'])
+    const btnContainer = document.createElement('div')
 
-    if (scrollY >= 10 * fontSize) {
-      const btnContainer = document.createElement('div')
-
-      btnContainer.className = 'top-btn'
-      btnContainer.innerHTML = `
-        <i class="bi bi-arrow-bar-up text-light fs-2 px-1"></i>
-      `
-      document.body.appendChild(btnContainer)
-    } else if (scrollY <= 5 * fontSize && document.querySelector('.top-btn')) {
-      document.querySelector('.top-btn').remove()
-    }
+    btnContainer.className = 'top-btn'
+    btnContainer.innerHTML = `
+      <i class="bi bi-arrow-bar-up text-light fs-2 px-1"></i>
+    `
+    document.body.appendChild(btnContainer)
   }
 
-  // backToTopBtnRemove() {
-  //   document.querySelector('.top-btn').style.display = 'none'
-  // }
+  backToTopBtnRemove() {
+    const topBtn = document.querySelector('.top-btn')
+    if (topBtn) {
+      // 添加按钮消失的特效动画
+      topBtn.classList.add('btn-remove')
+      // 等待消失动画完成
+      setTimeout(() => {
+        topBtn.remove()
+      }, 1500)
+    }
+  }
 
   changeNavBackground() {
     const navbar = document.querySelector(this.selectors.navbar)
