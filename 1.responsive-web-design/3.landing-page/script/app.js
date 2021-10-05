@@ -1,7 +1,9 @@
 const ui = new UI()
 // ? Event listeners
-window.addEventListener('scroll', navbarAnimation)
-window.addEventListener('scroll', navbarActiveItem)
+document.addEventListener('scroll', navbarAnimation)
+document.addEventListener('scroll', navbarActiveItem)
+document.addEventListener('scroll', ui.backToTopBtnRender)
+document.addEventListener('click', backToTop)
 
 // ? Banner 部分选择项目的特效
 const selectList = document.querySelectorAll('.banner-div .list-group-item')
@@ -36,4 +38,15 @@ function navbarActiveItem() {
 
     ui.navbarItemHighlight(item)
   })
+}
+
+// ? 移除回到顶部的按钮
+function backToTop(e) {
+  if (e.target.classList.contains('top-btn') || e.target.classList.contains('bi-arrow-bar-up')) {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
 }

@@ -93,6 +93,7 @@
   margin-bottom: 0.5rem;
   color: var(--bs-dark-rgb);
   width: auto;
+  user-select: none;
 }
 
 .banner-div .bi-circle-fill {
@@ -108,6 +109,7 @@
   transform: scale(1.1);
   font-weight: bold;
   padding-left: 0.8rem;
+  cursor: pointer;
 }
 
 .banner-div .input-group * {
@@ -181,7 +183,7 @@
 .review-div .review-card::after {
   display: block;
   opacity: 0.75;
-  content: " ";
+  content: "";
   width: 0;
   height: 0;
   border: 2rem solid rgba(255, 255, 255);
@@ -204,6 +206,25 @@ footer {
 }
 /* Footer div ends */
 
+
+/* * Etc starts */
+.top-btn {
+  transition: all 1s ease-in;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  background: rgba( 73, 138, 255, 0.25 );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.top-btn:hover {
+  cursor: pointer;
+}
+/*  Etc ends */
+
+
 /* * Media Queries */
 @media screen and (min-width: 576px) {
   :root {
@@ -221,10 +242,4 @@ footer {
   :root {
     font-size: 20px;
   }
-}
-
-.test {
-  width: 100px;  
-  height: 100px;
-  background
 }

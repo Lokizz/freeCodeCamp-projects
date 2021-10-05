@@ -8,6 +8,27 @@ class UI {
     }
   }
 
+  backToTopBtnRender() {
+    const scrollY = parseInt(window.scrollY)
+    const fontSize = parseInt(getComputedStyle(document.body)['font-size'])
+
+    if (scrollY >= 10 * fontSize) {
+      const btnContainer = document.createElement('div')
+
+      btnContainer.className = 'top-btn'
+      btnContainer.innerHTML = `
+        <i class="bi bi-arrow-bar-up text-light fs-2 px-1"></i>
+      `
+      document.body.appendChild(btnContainer)
+    } else if (scrollY <= 5 * fontSize && document.querySelector('.top-btn')) {
+      document.querySelector('.top-btn').remove()
+    }
+  }
+
+  // backToTopBtnRemove() {
+  //   document.querySelector('.top-btn').style.display = 'none'
+  // }
+
   changeNavBackground() {
     const navbar = document.querySelector(this.selectors.navbar)
     // Change the navbar background color to white
@@ -38,30 +59,16 @@ class UI {
   }
 
   selectedStyleToggle(target) {
-    if (target.classList.contains('bi')) {
-      // the selected item would cancel selection when clicked again
-      if (target.classList.contains('selected')) {
-        this.unselectListItem(target)
-      } else {
-        // check if any selected list items
-        this.cancelCurrentSelected()
-        this.selectListItem(target)
-        target.dataset.current = 'true'
-      }
-    }
-  }
-
-  selectedStyleToggle(target) {
-    if (target.classList.contains('bi')) {
-      // the selected item would cancel selection when clicked again
-      if (target.classList.contains('selected')) {
-        this.unselectListItem(target)
-      } else {
-        // check if any selected list items
-        this.cancelCurrentSelected()
-        this.selectListItem(target)
-        target.dataset.current = 'true'
-      }
+    // ! 获取真正点击的元素
+    const icon = target.querySelector('.bi') ? target.querySelector('.bi') : target
+    // the selected item would cancel selection when clicked again
+    if (icon.classList.contains('selected')) {
+      this.unselectListItem(icon)
+    } else {
+      // check if any selected list items
+      this.cancelCurrentSelected()
+      this.selectListItem(icon)
+      icon.dataset.current = 'true'
     }
   }
 
