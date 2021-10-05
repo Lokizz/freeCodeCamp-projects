@@ -32,10 +32,6 @@ function navbarActiveItem() {
   const navbarItems = document.querySelectorAll('.nav-link')
 
   navbarItems.forEach(item => {
-    // ! 通过 href 属性确定对应的 section
-    const itemID = item.href.split('#')[1]
-    const itemDiv = document.getElementById(itemID)
-
     ui.navbarItemHighlight(item)
   })
 }
@@ -47,7 +43,7 @@ function backToTopBtn() {
 
   if ((scrollY >= 10 * fontSize) && (!document.querySelector('.top-btn'))) {
     ui.backToTopBtnRender()
-  } else if (scrollY <= 5 * fontSize) {
+  } else if (scrollY <= 8 * fontSize) {
     ui.backToTopBtnRemove()
   }
 }

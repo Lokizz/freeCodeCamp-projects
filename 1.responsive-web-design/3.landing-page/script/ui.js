@@ -50,9 +50,10 @@ class UI {
     const itemID = item.href.split('#')[1]
     const itemDiv = document.getElementById(itemID)
     const itemRect = itemDiv.getBoundingClientRect()
+    const fontSize = parseInt(getComputedStyle(document.body)['font-size'])
 
     // if ((itemRect.top <= 60 && itemRect.bottom > 100) || (itemID === 'pricing' && itemRect.top <= itemRect.height / 2))
-    if (itemRect.top <= 80 && itemRect.bottom > 100) {
+    if ((itemRect.top <= 8 * fontSize) && (itemRect.bottom > 6 * fontSize)) {
       item.classList.add('active-item')
     } else {
       item.classList.remove('active-item')
