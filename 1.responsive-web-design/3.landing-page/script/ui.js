@@ -6,15 +6,15 @@ Fix:
 */
 
 class UI {
-  constructor() {
+  constructor () {
     this.selectors = {
       header: '#header',
-      navbar: '#nav-bar', 
+      navbar: '#nav-bar',
       userType: '.banner-div .bi'
     }
   }
 
-  backToTopBtnRender() {
+  backToTopBtnRender () {
     const btnContainer = document.createElement('div')
 
     btnContainer.className = 'top-btn rounded-circle'
@@ -24,21 +24,20 @@ class UI {
     document.body.appendChild(btnContainer)
   }
 
-  backToTopBtnRemove() {
+  backToTopBtnRemove () {
     const topBtn = document.querySelector('.top-btn')
     if (topBtn) {
       // 添加按钮消失的特效动画
       topBtn.classList.add('btn-remove')
-      console.log(getComputedStyle(topBtn)['animationDuration'])
-      
+
       // 等待消失动画完成
       setTimeout(() => {
         topBtn.remove()
-      }, parseInt(getComputedStyle(topBtn)['animationDuration']) * 1000)
+      }, parseInt(getComputedStyle(topBtn).animationDuration) * 1000)
     }
   }
 
-  changeNavBackground() {
+  changeNavBackground () {
     const navbar = document.querySelector(this.selectors.navbar)
     // Change the navbar background color to white
     navbar.classList.add('bg-secondary')
@@ -46,19 +45,19 @@ class UI {
     navbar.classList.add('drop-in')
   }
 
-  recoverNavBackground() {
+  recoverNavBackground () {
     const navbar = document.querySelector(this.selectors.navbar)
     // Revert the background color and remove the animation
     navbar.classList.remove('bg-secondary')
     navbar.classList.remove('drop-in')
   }
 
-  navbarItemHighlight(item) {
+  navbarItemHighlight (item) {
     // ! 通过 href 属性确定对应的 section
     const itemID = item.href.split('#')[1]
     const itemDiv = document.getElementById(itemID)
     const itemRect = itemDiv.getBoundingClientRect()
-    const fontSize = parseInt(getComputedStyle(document.body)['font-size'])
+    const fontSize = parseInt(getComputedStyle(document.body).fontSize)
 
     // if ((itemRect.top <= 60 && itemRect.bottom > 100) || (itemID === 'pricing' && itemRect.top <= itemRect.height / 2))
     if ((itemRect.top <= 8 * fontSize) && (itemRect.bottom > 6 * fontSize)) {
@@ -68,7 +67,7 @@ class UI {
     }
   }
 
-  selectedStyleToggle(target) {
+  selectedStyleToggle (target) {
     // ! 获取真正点击的元素
     const icon = target.querySelector('.bi') ? target.querySelector('.bi') : target
     // the selected item would cancel selection when clicked again
@@ -82,7 +81,7 @@ class UI {
     }
   }
 
-  selectListItem(target) {
+  selectListItem (target) {
     // remove the white background color
     target.classList.remove('text-secondary')
     target.classList.replace('bi-circle-fill', 'bi-check2-circle')
@@ -90,14 +89,14 @@ class UI {
     target.classList.add('selected')
   }
 
-  unselectListItem(target) {
+  unselectListItem (target) {
     target.classList.remove('selected')
     target.classList.replace('bi-check2-circle', 'bi-circle-fill')
     // change the icon background color to white
     target.classList.add('text-secondary')
   }
 
-  cancelCurrentSelected() {
+  cancelCurrentSelected () {
     const userTypes = document.querySelectorAll(this.selectors.userType)
     userTypes.forEach(item => {
       if (item.dataset.current) {
@@ -106,3 +105,5 @@ class UI {
     })
   }
 }
+
+export const ui = new UI()

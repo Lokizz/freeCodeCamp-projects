@@ -1,4 +1,5 @@
-const ui = new UI()
+import { ui } from './ui.js'
+
 // ? Event listeners
 document.addEventListener('scroll', navbarAnimation)
 document.addEventListener('scroll', navbarActiveItem)
@@ -15,7 +16,7 @@ selectList.forEach(item => {
 })
 
 // ? 依据鼠标的滚动距离决定导航栏的样式
-function navbarAnimation() {
+function navbarAnimation () {
   // ! 转换为数值进行比较
   const currentScrollY = parseInt(window.scrollY)
   const globalFontSize = parseInt(getComputedStyle(document.body)['font-size'])
@@ -28,7 +29,7 @@ function navbarAnimation() {
 }
 
 // ? 依据滚动位置决定导航栏当前高亮项目
-function navbarActiveItem() {
+function navbarActiveItem () {
   const navbarItems = document.querySelectorAll('.nav-link')
 
   navbarItems.forEach(item => {
@@ -37,7 +38,7 @@ function navbarActiveItem() {
 }
 
 // ? 判断并渲染 top-btn
-function backToTopBtn() {
+function backToTopBtn () {
   const scrollY = parseInt(window.scrollY)
   const fontSize = parseInt(getComputedStyle(document.body)['font-size'])
 
@@ -49,7 +50,7 @@ function backToTopBtn() {
 }
 
 // ? 移除回到顶部的按钮
-function backToTop(e) {
+function backToTop (e) {
   if (e.target.classList.contains('top-btn') || e.target.classList.contains('bi-arrow-bar-up')) {
     window.scroll({
       top: 0,
