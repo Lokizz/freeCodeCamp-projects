@@ -1,4 +1,10 @@
 // * 个人自定义特效组件（仅适用于 Bootstrap）
+/*
+Ver 0.1 - 2021/10/29
+Fix:
+1. `backToTopBtnRemove` 移除 topBtn 的时间，从硬编码指定修改为自动获取 animationDuration 的数值
+*/
+
 class UI {
   constructor() {
     this.selectors = {
@@ -23,10 +29,12 @@ class UI {
     if (topBtn) {
       // 添加按钮消失的特效动画
       topBtn.classList.add('btn-remove')
+      console.log(getComputedStyle(topBtn)['animationDuration'])
+      
       // 等待消失动画完成
       setTimeout(() => {
         topBtn.remove()
-      }, 2000)
+      }, parseInt(getComputedStyle(topBtn)['animationDuration']) * 1000)
     }
   }
 
