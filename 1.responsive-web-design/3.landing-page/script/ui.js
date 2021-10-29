@@ -11,9 +11,9 @@ class UI {
   backToTopBtnRender() {
     const btnContainer = document.createElement('div')
 
-    btnContainer.className = 'top-btn'
+    btnContainer.className = 'top-btn rounded-circle'
     btnContainer.innerHTML = `
-      <i class="bi bi-arrow-bar-up text-light fs-2 px-1"></i>
+      <i class="bi bi-arrow-bar-up text-light fs-4"></i>
     `
     document.body.appendChild(btnContainer)
   }
@@ -26,7 +26,7 @@ class UI {
       // 等待消失动画完成
       setTimeout(() => {
         topBtn.remove()
-      }, 1500)
+      }, 2000)
     }
   }
 
