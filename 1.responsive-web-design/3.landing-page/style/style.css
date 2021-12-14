@@ -1,3 +1,5 @@
+/* 211214 - 添加贴合滚动功能（scorll-nap） */
+
 :root {
   font-size: 16px;
   font-family: "Noto Sans SC", sans-serif;
@@ -5,6 +7,10 @@
 }
 
 /* * Header Div */
+#nav-bar {
+  background: #fff;
+}
+
 .drop-in {
   animation-name: dropIn;
   animation-timing-function: linear;
@@ -73,6 +79,19 @@
 }
 /* Header div ends */
 
+
+/* * Main 设置贴合滚动 */
+/* main {
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 4.5rem;
+  overflow: scroll;
+  height: 100vh;
+}
+
+main > section {
+  height: 100vh;
+  scroll-snap-align: start;
+} */
 
 /* * Banner Div */
 .banner-div .car-title {
