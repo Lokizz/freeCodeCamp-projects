@@ -4,6 +4,6 @@
 
 ## Demo 网页
 
-### 1. (网页表单)[https://lokizz.github.io/freeCodeCamp-projects/1\.responsive-web-design/2.\survey-form]
+### 1. (网页表单)[https://lokizz.github.io/freeCodeCamp-projects/1.responsive-web-design/2.survey-form]
 
-### 5. (产品登陆页)[https://lokizz.github.io/freeCodeCamp-projects/1\.responsive-web-design/3.landing-page]
+### 5. (产品登陆页)[https://lokizz.github.io/freeCodeCamp-projects/1.responsive-web-design/3.landing-page]
